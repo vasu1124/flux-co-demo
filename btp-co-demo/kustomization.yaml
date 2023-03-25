@@ -4,3 +4,5 @@ resources:
 - 1_namespace.yaml
 - 2_secrets_btp-sops.yaml
 - 2_secret_creds-sops.yaml
+
+namespace: btp-co-demo
