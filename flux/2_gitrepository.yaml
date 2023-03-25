@@ -2,7 +2,6 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: flux-co-demo
-  namespace: vasu
 spec:
   gitImplementation: go-git
   interval: 1m0s
