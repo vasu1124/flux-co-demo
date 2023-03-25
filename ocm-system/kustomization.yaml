@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- namespace.yaml
+- https://github.com/open-component-model/ocm-controller/config/default?ref=v0.5.0
+
+images:
+- name: open-component-model/ocm-controller
+  newName: ghcr.io/open-component-model/ocm-controller
+  newTag: "v0.5.0"
+- name: open-component-model/ocm-registry
+  newName: ghcr.io/open-component-model/ocm-registry
+  newTag: "v0.0.1-dev"
+- name: open-component-model/unpacker-controller
+  newName: ghcr.io/open-component-model/unpacker-controller
+  newTag: "v0.0.1"
+
+namespace: ocm-system
