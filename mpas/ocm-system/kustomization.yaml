@@ -6,9 +6,9 @@ resources:
 - 2_secret_creds-sops.yaml
 - 3_secret_regcreds-sops.yaml
 - https://github.com/open-component-model/ocm-controller/config/default?ref=v0.5.0
-- https://github.com/open-component-model/unpacker-controller/config/crd?ref=v0.0.1
-- unpacker
-- https://github.com/open-component-model/unpacker-controller/config/manager?ref=v0.0.1
+#- https://github.com/open-component-model/unpacker-controller/config/crd?ref=v0.0.1
+#- unpacker
+#- https://github.com/open-component-model/unpacker-controller/config/manager?ref=v0.0.1
 
 images:
 - name: open-component-model/ocm-controller
