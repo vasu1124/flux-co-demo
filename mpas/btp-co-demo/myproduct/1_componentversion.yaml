@@ -1,0 +1,15 @@
+apiVersion: delivery.ocm.software/v1alpha1
+kind: ComponentVersion
+metadata:
+  name: myproduct
+spec:
+  interval: 1m0s
+  component: github.com/vasu1124/myproduct
+  version:
+    semver: ">=v0.0.1"
+  repository:
+    url: ghcr.io/vasu1124/ocm
+    secretRef:
+      name: creds
+  references:
+    expand: true

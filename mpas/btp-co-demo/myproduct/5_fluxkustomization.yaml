@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: myproduct
+spec:
+  interval: 1m0s
+  prune: true
+  targetNamespace: btp-co-demo
+  sourceRef:
+    kind: OCIRepository
+    name: myproduct-iad-configured
+  path: ./

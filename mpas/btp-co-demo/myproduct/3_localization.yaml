@@ -1,0 +1,21 @@
+apiVersion: delivery.ocm.software/v1alpha1
+kind: Localization
+metadata:
+  name: myproduct
+spec:
+  interval: 1m0s
+  componentVersionRef:
+    name: myproduct
+    namespace: btp-co-demo
+  source:
+    sourceRef:
+      kind: Snapshot
+      name: myproduct-iad
+      namespace: btp-co-demo
+  configRef:
+    resource:
+      resourceRef:
+        name: config
+  snapshotTemplate:
+    name: myproduct-iad-localized
+

@@ -1,0 +1,29 @@
+apiVersion: delivery.ocm.software/v1alpha1
+kind: Configuration
+metadata:
+  name: btp-co-demo
+spec:
+  interval: 1m0s
+  componentVersionRef:
+    name: myproduct
+    namespace: btp-co-demo
+  source:
+    sourceRef:
+      kind: Snapshot
+      name: myproduct-iad-localized
+      namespace: btp-co-demo
+  configRef:
+    resource:
+      resourceRef:
+        name: config
+  snapshotTemplate:
+    name: myproduct-iad-configured
+    createFluxSource: true
+  values:
+    namespace: btp-co-demo
+    serviceAccountSecret: sa-provider-secret
+    cisCredentials: cis-provider-secret
+    admin: "vasu.chandrasekhara@sap.com"
+    subaccountDisplayName: "Vasu's myproduct"
+    subaccountRegion: eu12
+    subaccountSubdomain: vasu-test
