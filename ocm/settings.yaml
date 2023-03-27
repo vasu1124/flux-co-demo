@@ -1,4 +1,6 @@
 COMPONENT_NAME_PREFIX: github.com/vasu1124
 PROVIDER: actvirtual.com
 NAME: myproduct
+OCI: ghcr.io
+ORG: vasu1124
 VERSION: v0.1.9

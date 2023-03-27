@@ -16,3 +16,26 @@ components:
       type: file
       path: "config.yaml"
       compress: true
+  #
+  # EXAMPLES
+  #
+  # include image from builtin docker repo (on laptop)
+  #
+  # - name: myproduct-image
+  #   type: ociImage
+  #   version: ${VERSION}
+  #   input:
+  #     type: dockermulti
+  #     repository: myproduct
+  #     variants:
+  #     - ${OCI}/${ORG}/myproduct:${VERSION}-linux-amd64
+  #     - ${OCI}/${ORG}/myproduct:${VERSION}-linux-arm64
+  #
+  # reference image from docker.io
+  #
+  # - name: mongodb-image
+  #   type: ociImage
+  #   version: 4.4.14
+  #   access:
+  #     type: ociArtifact
+  #     imageReference: docker.io/bitnami/mongodb:4.4.14
