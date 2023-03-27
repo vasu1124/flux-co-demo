@@ -5,4 +5,4 @@ resources:
 - 2_gitrepository.yaml
 - 3_fluxkustomization.yaml
 
-namespace: flux-co-demo
+namespace: mpas-system
