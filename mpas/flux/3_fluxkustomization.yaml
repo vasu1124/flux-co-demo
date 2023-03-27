@@ -4,7 +4,7 @@ metadata:
   name: flux-co-demo
 spec:
   interval: 10m0s
-  path: ./
+  path: ./mpas
   prune: true
   sourceRef:
     kind: GitRepository
