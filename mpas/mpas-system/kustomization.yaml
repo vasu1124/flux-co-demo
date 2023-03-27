@@ -7,5 +7,6 @@ resources:
 - 3_fluxkustomization.yaml
 - 4_provider-github.yaml
 - 5_alert-github.yaml
+- 6_secrets_github-sops.yaml
 
 namespace: mpas-system
