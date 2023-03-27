@@ -1,0 +1,15 @@
+apiVersion: account.btp.orchestrate.cloud.sap/v1alpha1
+kind: Subaccount
+metadata:
+  name: myproduct-subaccount
+spec:
+  providerConfigRef:
+    name: myproduct-providerconfig
+  forProvider:
+    globalAccountRef:
+      name: myproduct-globalaccount
+    displayName: "subaccount"
+    region: eu12
+    subdomain: subdomain
+    subaccountAdmins:
+      - admin@example.com

@@ -1,0 +1,41 @@
+apiVersion: account.btp.orchestrate.cloud.sap/v1alpha1
+kind: Entitlement
+metadata:
+  name: myproduct-cis-entitlement
+spec:
+  providerConfigRef:
+    name: myproduct-providerconfig
+  forProvider:
+    serviceName: cis
+    servicePlanName: local
+    enable: true
+    subaccountRef:
+      name: myproduct-subaccount
+---
+apiVersion: account.btp.orchestrate.cloud.sap/v1alpha1
+kind: Entitlement
+metadata:
+  name: myproduct-cls-entitlement
+spec:
+  providerConfigRef:
+    name: myproduct-providerconfig
+  forProvider:
+    serviceName: cloud-logging
+    servicePlanName: standard
+    amount: 2
+    subaccountRef:
+      name: myproduct-subaccount
+---
+apiVersion: account.btp.orchestrate.cloud.sap/v1alpha1
+kind: Entitlement
+metadata:
+  name: myproduct-kyma-entitlement
+spec:
+  providerConfigRef:
+    name: myproduct-providerconfig
+  forProvider:
+    serviceName: kymaruntime
+    servicePlanName: azure
+    amount: 1
+    subaccountRef:
+      name: myproduct-subaccount

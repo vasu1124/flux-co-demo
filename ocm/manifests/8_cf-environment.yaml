@@ -1,0 +1,15 @@
+apiVersion: environment.btp.orchestrate.cloud.sap/v1alpha1
+kind: CloudFoundryEnvironment
+metadata:
+  name: myproduct-cf
+spec:
+  providerConfigRef:
+    name: myproduct-providerconfig
+  forProvider:
+    initialOrgManagers:
+      - admin@example.com
+    landscape: cf-eu12
+  cloudManagementRef:
+    name: myproduct-cis
+  subaccountRef:
+    name: myproduct-subaccount

@@ -1,0 +1,23 @@
+apiVersion: environment.btp.orchestrate.cloud.sap/v1alpha1
+kind: KymaEnvironment
+metadata:
+  name: myproduct-kyma
+spec:
+  writeConnectionSecretToRef:
+    name: myproduct-kyma-connection
+    namespace: myns
+  providerConfigRef:
+    name: myproduct-providerconfig
+  subaccountRef:
+    name: myproduct-subaccount
+  cloudManagementRef:
+    name: myproduct-cis
+  forProvider:
+    planName: azure
+    parameters:
+      region: northeurope
+      machineType: Standard_D4_v3
+      autoScalerMin: 3
+      autoScalerMax: 20
+      administrators:
+        - admin@example.com

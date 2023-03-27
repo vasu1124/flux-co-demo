@@ -1,0 +1,14 @@
+---
+apiVersion: account.btp.orchestrate.cloud.sap/v1alpha1
+kind: ServiceManager
+metadata:
+  name: myproduct-servicemanager
+spec:
+  providerConfigRef:
+    name: myproduct-providerconfig
+  writeConnectionSecretToRef:
+    name: sap-btp-service-operator
+    namespace: myns
+  forProvider:
+    subaccountRef:
+      name: myproduct-subaccount

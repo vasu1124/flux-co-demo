@@ -1,0 +1,17 @@
+apiVersion: account.btp.orchestrate.cloud.sap/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: myproduct-providerconfig
+spec:
+  serviceAccountSecret:
+    source: Secret
+    secretRef:
+      name: mysasecret
+      namespace: myns
+      key: credentials
+  cisCredentials:
+    source: Secret
+    secretRef:
+      name: mycissecret
+      namespace: myns
+      key: data

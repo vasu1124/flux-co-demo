@@ -1,0 +1,83 @@
+apiVersion: config.ocm.software/v1alpha1
+kind: ConfigData
+metadata:
+  name: myproduct-config
+configuration:
+  defaults:
+    namespace: myns
+    serviceAccountSecret: mysasecret
+    cisCredentials: mycissecret
+    admin: admin-config@example.com
+    subaccountDisplayName: "myproduct subaccount"
+    subaccountRegion: eu12
+    subaccountSubdomain: subdomain
+    kymaPlanName: azure
+    kymaRegion: northeurope
+  schema:
+    type: object
+    additionalProperties: false
+    properties:
+      admin:
+        type: string
+      subaccountDisplayName:
+        type: string
+      subaccountRegion:
+        type: string
+      subaccountSubdomain:
+        type: string
+      kymaPlanName:
+        type: string
+      kymaRegion:
+        type: string
+      serviceAccountSecret:
+        type: string
+      cisCredentials:
+        type: string
+      namespace:
+        type: string
+  rules:
+  - value: (( serviceAccountSecret ))
+    file: 2_providerconfig.yaml
+    path: spec.serviceAccountSecret.secretRef.name
+  - value: (( cisCredentials ))
+    file: 2_providerconfig.yaml
+    path: spec.cisCredentials.secretRef.name
+  - value: (( admin ))
+    file: 4_subaccount.yaml
+    path: spec.forProvider.subaccountAdmins[0]
+  - value: (( admin ))
+    file: 8_cf-environment.yaml
+    path: spec.forProvider.initialOrgManagers[0]
+  - value: (( admin ))
+    file: 9_kyma-environment.yaml
+    path: spec.forProvider.parameters.administrators[0]
+  - value: (( subaccountDisplayName ))
+    file: 4_subaccount.yaml
+    path: spec.forProvider.displayName
+  - value: (( subaccountRegion ))
+    file: 4_subaccount.yaml
+    path: spec.forProvider.region
+  - value: (( subaccountSubdomain ))
+    file: 4_subaccount.yaml
+    path: spec.forProvider.subdomain
+  - value: (( kymaPlanName ))
+    file: 9_kyma-environment.yaml
+    path: spec.forProvider.planName
+  - value: (( kymaRegion ))
+    file: 9_kyma-environment.yaml
+    path: spec.forProvider.parameters.region
+  - value: (( namespace ))
+    file: 2_providerconfig.yaml
+    path: spec.serviceAccountSecret.secretRef.namespace
+  - value: (( namespace ))
+    file: 2_providerconfig.yaml
+    path: spec.cisCredentials.secretRef.namespace
+  - value: (( namespace ))
+    file: 6_servicemanager.yaml
+    path: spec.writeConnectionSecretToRef.namespace
+  - value: (( namespace ))
+    file: 7_cloudmanagement.yaml
+    path: spec.writeConnectionSecretToRef.namespace
+  - value: (( namespace ))
+    file: 9_kyma-environment.yaml
+    path: spec.writeConnectionSecretToRef.namespace

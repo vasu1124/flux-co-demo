@@ -1,0 +1,18 @@
+components:
+- name: ${COMPONENT_NAME_PREFIX}/${NAME}
+  version: ${VERSION}
+  provider: 
+    name: ${PROVIDER}
+  resources:
+  - name: iad-manifests
+    type: Directory
+    input:
+      type: dir
+      path: "manifests"
+      compress: true
+  - name: config
+    type: PlainText
+    input:
+      type: file
+      path: "config.yaml"
+      compress: true

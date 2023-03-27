@@ -1,0 +1,15 @@
+apiVersion: account.btp.orchestrate.cloud.sap/v1alpha1
+kind: CloudManagement
+metadata:
+  name: myproduct-cis
+spec:
+  providerConfigRef:
+    name: myproduct-providerconfig
+  writeConnectionSecretToRef:
+    name: myproduct-cis
+    namespace: myns
+  forProvider:
+    serviceManagerRef:
+      name: myproduct-servicemanager
+    subaccountRef:
+      name: myproduct-subaccount
