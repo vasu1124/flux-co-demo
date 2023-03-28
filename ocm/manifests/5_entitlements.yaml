@@ -36,6 +36,6 @@ spec:
   forProvider:
     serviceName: kymaruntime
     servicePlanName: azure
-    amount: 1
+    enable: true
     subaccountRef:
       name: myproduct-subaccount
