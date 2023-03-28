@@ -2,7 +2,7 @@ include .env
 
 .PHONY: deploy-system
 deploy-system:
-	kubectl apply -k mpas/mpas-system
+	-kubectl apply -k mpas/mpas-system
 	kubectl apply -f mpas/mpas-system/secrets.yaml
 
 .PHONY: subscribe-myproduct
